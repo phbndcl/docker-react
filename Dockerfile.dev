@@ -1,0 +1,13 @@
+#Step1: Setuping a base image
+FROM node:16-alpine
+
+#Step2: Making a working directory to not merge or do changes in other directories
+WORKDIR /app
+
+COPY /package.json .
+
+RUN npm install
+
+COPY . .
+
+CMD ["npm","run","start"]
